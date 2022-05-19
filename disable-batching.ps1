@@ -1,0 +1,1 @@
+az servicebus topic create --enable-batched-operations $false --name throughput2 --namespace-name sbthroughput --resource-group sbthroughput
