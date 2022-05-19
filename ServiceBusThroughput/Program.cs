@@ -6,15 +6,14 @@ class Program
     static async Task Main(string[] args)
     {
         // connection string to your Service Bus namespace
-        string connectionString = null;
-        string topicName = "throughput2";
         int numOfMessages = 100;
-        int batchSize = 2;
+        int batchSize = 10;
 
-        if (args.Length == 0) throw new ArgumentException("First argument must be Service Bus connection string");
+        if (args.Length == 0) throw new ArgumentException("First argument must be Service Bus connection string.\nUsage: ./ServiceBusThroughput.exe (Service Bus connection string) (topic name)");
+        if (args.Length == 1) throw new ArgumentException("Second argument must be topic name.\nUsage: ./ServiceBusThroughput.exe (Service Bus connection string) (topic name)");
 
-        connectionString = args[0];
-        if (args.Length > 1) topicName = args[1];
+        string connectionString = args[0];
+        string topicName = args[1];
         if (args.Length > 2) int.TryParse(args[2], out numOfMessages);
         if (args.Length > 3) int.TryParse(args[3], out batchSize);
 
