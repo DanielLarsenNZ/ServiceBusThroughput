@@ -5,6 +5,8 @@ Experiments in Azure Service Bus throughput.
 ## Getting started
 
 ```powershell
+cd ServiceBusThroughput
+
 dotnet run -c Release -- "(Service Bus connection string)" throughput2 100 10
 ```
 
@@ -18,7 +20,7 @@ Where:
 The tool currently only supports Service Bus Topics. The tool will run two tests. The first test runs without batching (sending each message individually). The second test sends messages in batches. The tool will produce output like this:
 
 ```
-100 messages sent in 23273 ms equals throughput of 4.2966819346394765 per second
+1000 messages sent in 18190 ms equals throughput of 54.97281138202825 per second
 
-100 messages in batches of 10 sent in 4002 ms equals throughput of 24.982216409249073 per second
+1000 messages in batches of 10 sent in 1838 ms equals throughput of 543.9089244086799 per second
 ```
