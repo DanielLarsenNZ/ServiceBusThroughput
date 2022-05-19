@@ -16,8 +16,8 @@ class Program
         if (args.Length == 0) throw new ArgumentException("First argument must be Service Bus connection string");
 
         connectionString = args[0];
-        if (args.Length > 2) topicName = args[1];
-        if (args.Length > 3) int.TryParse(args[2], out numOfMessages);
+        if (args.Length > 1) topicName = args[1];
+        if (args.Length > 2) int.TryParse(args[2], out numOfMessages);
 
         var client = new ServiceBusClient(connectionString);
         var sender = client.CreateSender(topicName);
